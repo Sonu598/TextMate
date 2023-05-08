@@ -32,10 +32,10 @@ io.on('connection', (socket) => {
     socket.join(user.room)
 
     // Welcome message
-    socket.emit('message', `Chat AI :- Welcome to ${room}`)
+    socket.emit('message', `TextMate Bot :- Welcome to ${room}`)
 
     // Broadcasting other users
-    socket.broadcast.to(room).emit('message', `Chat AI :- ${username} has joined the room`)
+    socket.broadcast.to(room).emit('message', `TextMate Bot :- ${username} has joined the room`)
 
     // getting room users.
     const users = getRoomUsers(user.room)
@@ -84,7 +84,7 @@ io.on('connection', (socket) => {
 
     if(user){
       // Broadcastion other users on leaving
-      io.to(user.room).emit('message', `Chat AI :- ${user.username} has left the chat`)
+      io.to(user.room).emit('message', `TextMate Bot :- ${user.username} has left the chat`)
 
       // getting room users.
       io.to(user.room).emit('roomUsers', {
